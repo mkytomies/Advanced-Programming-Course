@@ -110,12 +110,16 @@ namespace Snake
             ReadKey ();
         }
 
+        // Method to get next movement based on user input
         static Direction GetNextMovement (Direction currentMovement)
         {
+            // Check if a key is available
             if (KeyAvailable)
             {
+                // Read the key pressed
                 var key = ReadKey (true).Key;
 
+                // Determine the next movement
                 switch (key)
                 {
                     case ConsoleKey.UpArrow when currentMovement != Direction.Down:
@@ -128,6 +132,7 @@ namespace Snake
                         return Direction.Right;
                 }
             }
+            // If no key was pressed the movement doesn't change
             return currentMovement;
         }
 
