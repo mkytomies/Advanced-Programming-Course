@@ -7,8 +7,11 @@ namespace Snake
     {
         static void Main ()
         {
-            Console.WindowHeight = 16;
-            Console.WindowWidth = 32;
+            if (OperatingSystem.IsWindows())
+            {
+                Console.WindowHeight = 16;
+                Console.WindowWidth = 32;
+            }
 
             var rand = new Random ();
 
@@ -127,7 +130,6 @@ namespace Snake
             SetCursorPosition (0, 0); // Move cursor to prevent flickering
         }
 
-        // Method to get next movement based on user input
         static Direction GetNextMovement (Direction currentMovement)
         {
             if (KeyAvailable)
@@ -171,5 +173,10 @@ namespace Snake
             Right,
             Left
         }
+    }
+
+    class GUI
+    {
+
     }
 }
